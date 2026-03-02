@@ -30,6 +30,8 @@
 
   --color-border: rgba(148, 163, 184, 0.12);
   --color-border-hover: rgba(148, 163, 184, 0.25);
+  --color-navbar-bg: rgba(10, 14, 26, 0.8);
+  --color-hero-title-start: #ffffff;
 
   /* Typography */
   --font-sans: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
@@ -82,6 +84,25 @@
   /* Layout */
   --container-max: 1200px;
   --navbar-height: 72px;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f8fafc;
+  --color-bg-elevated: #eef2ff;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f8faff;
+  --color-surface: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-border-hover: rgba(15, 23, 42, 0.22);
+  --color-primary-glow: rgba(99, 102, 241, 0.18);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.12);
+  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.14);
+  --color-navbar-bg: rgba(248, 250, 252, 0.85);
+  --color-hero-title-start: #0f172a;
 }
 
 /* --- Reset & Base --- */
@@ -256,7 +277,7 @@ button {
   right: 0;
   height: var(--navbar-height);
   z-index: 1000;
-  background: rgba(10, 14, 26, 0.8);
+  background: var(--color-navbar-bg);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -290,6 +311,30 @@ button {
 .navbar__list {
   display: flex;
   gap: var(--space-6);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.navbar__theme-switch {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-hover);
+  background: var(--color-bg-card);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.navbar__theme-switch:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar__link {
@@ -371,6 +416,18 @@ button {
     width: 100%;
     margin-top: var(--space-4);
   }
+
+  .navbar__actions {
+    width: 100%;
+    margin-top: var(--space-4);
+    flex-direction: column;
+  }
+
+  .navbar__theme-switch {
+    width: 100%;
+    height: 42px;
+    border-radius: var(--radius-lg);
+  }
 }
 
 /* ========================================
@@ -432,7 +489,7 @@ button {
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: var(--space-6);
-  background: linear-gradient(135deg, #fff 0%, var(--color-primary-light) 50%, var(--color-accent-light) 100%);
+  background: linear-gradient(135deg, var(--color-hero-title-start) 0%, var(--color-primary-light) 50%, var(--color-accent-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
