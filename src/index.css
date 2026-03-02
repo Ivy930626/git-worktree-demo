@@ -1070,6 +1070,68 @@ button {
 }
 
 /* ========================================
+   FAQ
+   ======================================== */
+.faq {
+  padding: var(--space-24) 0;
+  background: var(--color-bg-elevated);
+}
+
+.faq__list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.faq__item {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-6);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.faq__item[open] {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.faq__question {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.5;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: var(--space-8);
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--color-primary-light);
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.faq__item[open] .faq__question::after {
+  content: '−';
+}
+
+.faq__answer {
+  margin-top: var(--space-4);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+/* ========================================
    CTA BANNER
    ======================================== */
 .cta-banner {
