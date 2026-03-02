@@ -4,6 +4,7 @@ import SocialProof from './components/SocialProof';
 import Features from './components/Features';
 import UseCases from './components/UseCases';
 import Pricing from './components/Pricing';
+import Faq from './components/Faq';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 
@@ -17,6 +18,7 @@ function App() {
                 <Features />
                 <UseCases />
                 <Pricing />
+                <Faq />
                 <CallToAction />
             </main>
             <Footer />
