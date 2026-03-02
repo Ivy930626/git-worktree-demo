@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { NAV_LINKS, BRAND } from '../data/navigation';
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }) {
     const [menuOpen, setMenuOpen] = useState(false);
+    const isLightTheme = theme === 'light';
 
     return (
         <header className="navbar" role="banner">
@@ -39,9 +40,19 @@ function Navbar() {
                             </li>
                         ))}
                     </ul>
-                    <a href="#demo" className="btn btn--primary btn--sm navbar__cta">
-                        預約 Demo
-                    </a>
+                    <div className="navbar__actions">
+                        <button
+                            type="button"
+                            className="navbar__theme-switch"
+                            onClick={onToggleTheme}
+                            aria-label={`切換為${isLightTheme ? '深色' : '淺色'}主題`}
+                        >
+                            {isLightTheme ? '🌙' : '☀️'}
+                        </button>
+                        <a href="#demo" className="btn btn--primary btn--sm navbar__cta">
+                            預約 Demo
+                        </a>
+                    </div>
                 </nav>
             </div>
         </header>
